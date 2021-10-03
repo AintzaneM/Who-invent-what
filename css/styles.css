@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.grid-container {
+    background-color: white;
+    border: 2px solid #CAB8FF;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap : 20px;
+    padding: 20px 50px;   
+}
+
+.grid-item {
+    background-image: url("/images/who\ invent\ what.png");
+    text-align: center;
+    border: 1px solid black;
+    min-height: 100px;
+    min-width: 100px;
+    
+
+}
+
+h1{
+    text-align: center;
+}
