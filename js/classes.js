@@ -1,3 +1,9 @@
+// -able to click cards
+// -flip cards
+// -situation Won 
+// -situation Fall
+
+
 //CHOOSE RANDOM POSITION
 
 let validateOptions = [
@@ -28,47 +34,17 @@ const imagesCard = [
     {firstName : "Placeholder4", src: "../images/100px.png"},
     {firstName : "Placeholder5", src: "../images/100px.png"},
     {firstName : "Placeholder6", src: "../images/100px.png"},
+    // {firstName : "WhoInvent?" , src: "../images/who invent what.png"},
 ]
-
-
-// console.log(imagesCard[0].src)
-
-
-function placeImages(imagesCard) {
-    const parentDiv = document.getElementById("grid-container")
-    console.log(parentDiv)
-
-    for (let i = 0; i < imagesCard.length; i++) {
-        parentDiv.innerHTML += `<div class="grid-item"> <img src= "${imagesCard[i].src} "> </div>`
-    }
-
-
-
-}
-placeImages(imagesCard)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 let randomImages = imagesCard[Math.floor(Math.random() * imagesCard.length)];
 //console.log(randomImages)
+
+
+// console.log(imagesCard[0].src)
+
+//INVENTSARRAY
 
 let invents = [
     [FirstName = "InventAda", src = "images/invent-ada.png"],
@@ -79,37 +55,83 @@ let invents = [
 ]
 //console.log(invents)
 
-//ENABLE CLICKS CELLS
 
-const cells = document.getElementsByClassName("grid-item")
-for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener('click', function () {
-        console.log(i)
-    })
+
+
+
+
+
+//PLACE IMAGES ON GRID
+
+function placeImages(imagesCard) {
+    const parentDiv = document.getElementById("game-grid")
+    //console.log(parentDiv)
+
+    for (let i = 0; i < imagesCard.length; i++) {
+        parentDiv.innerHTML += `<div class="grid-item"> <img class= "img-open" src= "${imagesCard[i].src} "></div>`
+    }
+
+}
+placeImages(imagesCard)
+
+
+
+
+//BOTON CLICK-START
+const cellsGrid = document.getElementsByClassName("grid-item");
+
+function clickStart (cellsGrid){
+        
+    for(let i = 0; i<cellsGrid.length; i++) {
+        cellsGrid[i].addEventListener("click", function(){
+            console.log(i)
+        })  
+    }
 }
 
-//-----------------------------------------------------X-----------------------------------//
+clickStart(cellsGrid)
 
 
-    //
+ 
+
+ 
+// // function toggleCards () {
+// //     const imagesOpen = document.querySelectorAll(".img-open");
+// //     this.classList.toggle('open');
+// //     imagesOpen.forEach(image => imagesOpen.addEventListener("click", toggleCards));
+
+// // }
 
 
-    // class Game {
-    //     constructor () {
 
-    //     }
+// toggleCards ()
 
-    //     startGame();
-    //     .addEventListener();
-    // }
+//ENABLE CLICKS CELLS
 
 
-    // class Cards {
-    //     constructor () {
+//console.log(imagesOpen)
 
-    //     }
 
-    //     createImages();
+// -----------------------------------------------------X-----------------------------------//
+    
 
-    // }
-//
+
+//     class Game {
+//         constructor () {
+
+//         }
+
+//         startGame();
+//         .addEventListener();
+//     }
+
+
+//     class Cards {
+//         constructor () {
+
+//         }
+
+//         createImages();
+
+//     }
+
