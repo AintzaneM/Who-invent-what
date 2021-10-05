@@ -42,7 +42,7 @@ let randomImages = imagesCard[Math.floor(Math.random() * imagesCard.length)];
 //console.log(randomImages)
 
 const frontImageCard = [
-    {firstName : "WhoInvent?" , src: "../images/who invent what.png"},
+    {firstName : "WhoInvent?" , src: "../images/who-invent-what.png"}
 
 ]
 // console.log(imagesCard[0].src)
@@ -65,44 +65,44 @@ let invents = [
 
 //PLACE IMAGES ON GRID
 
-function placeImages(imagesCard, frontImageCard ) {
+function placeImages(imagesCard) {
 
     const parentDiv = document.getElementById("game-grid")
     //console.log(parentDiv)
 
     for (let i = 0; i < imagesCard.length; i++) {
-        parentDiv.innerHTML += `<div class="grid-item">
-        
-        <img class= "img-open" src= "${imagesCard[i].src} ">
-        </div>`
-    
-    
+        parentDiv.innerHTML += `
+            <div class="grid-item">
+                <div class= "img-close" />
+            </div>
+        `;
     }
 
 }
-placeImages(imagesCard, frontImageCard )
+placeImages(imagesCard)
+
+//BOTON CLICK-START
+
 
 const cellsGrid = document.getElementsByClassName("grid-item");
-const closeImg = document.getElementsByClassName("img-close");
 
-//console.log(openImg)
 
-function clickStart (cellsGrid){
-
-    
-  
-
-   
+function clickStart (cellsGrid){ 
 
     for(let i = 0; i<cellsGrid.length; i++) {
-        console.log(cellsGrid[i])
+        
+        
         cellsGrid[i].addEventListener("click", function(){
-            const openImg = cellsGrid[i].querySelector("img");
+            const openImg = cellsGrid[i].querySelector("div");
+            
            
              if(openImg.className === "img-open"){
-                 openImg.className = "close"
+                 openImg.className = "img-close"
+                 //openImg.src = "../images/who invent what.png"
                  
-             } else if (openImg.className === "close"){
+                 
+                 
+             } else if (openImg.className === "img-close"){
                  openImg.className = "img-open"
              }
             
@@ -110,68 +110,16 @@ function clickStart (cellsGrid){
         })  
     }
 }
-
-
-
-
-//BOTON CLICK-START
-
-
 clickStart(cellsGrid)
 
-function flipCard(){
-    cardsChosen.push(imagesCard)
-
-}
-
-const cardsChosen = []
-
-// const cellsGrid = document.getElementsByClassName("grid-item");
-
-// const openImg = document.getElementsByClassName("img-open");
-
-// // function clickStart (cellsGrid){
-        
-// //     for(let i = 0; i<cellsGrid.length; i++) {
-// //         cellsGrid[i].addEventListener("click", function(event){
-            
-            
-// //             console.log(i)
-
-// //         })
-            
-        
-// //     }
-// // }
-
-// // clickStart(cellsGrid)
-
-// function flipCard() {
-    
-//     this.classList.toggle("flip");
-// }
-// const closeImg = document.querySelectorAll(".img-close");
-// closeImg.forEach((image)=>image.addEventListener("click",flipCard))
-
-
- 
-
- 
-// // function toggleCards () {
-// //     const imagesOpen = document.querySelectorAll(".img-open");
-// //     this.classList.toggle('open');
-// //     imagesOpen.forEach(image => imagesOpen.addEventListener("click", toggleCards));
-
-// // }
 
 
 
-// toggleCards ()
 
 //ENABLE CLICKS CELLS
 
 
-//console.log(imagesOpen)
+
 
 
 // -----------------------------------------------------X-----------------------------------//

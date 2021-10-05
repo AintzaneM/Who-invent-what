@@ -22,7 +22,7 @@
             //const cellsGrid = document.getElementsByClassName("grid-item")
             // addEventListeners(){
                 
-            //     
+            //      
 
                 
             //     document.addEventListener("click", (event) => {
