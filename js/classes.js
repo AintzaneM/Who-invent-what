@@ -1,6 +1,6 @@
 // -able to click cards
 // -flip cards
-// -situation Won 
+// -situation Won
 // -situation Fall
 
 
@@ -19,27 +19,23 @@ let validateOptions = [
 
 let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
 
-//console.log(randomOptions)
 
-
-//CHOOSE RANDOM IMAGES
 const imagesCard = [
 
-    {firstName : "Ada" , src: "../images/ada-lovelace.png" },
-    {firstName : "Ada" , src: "../images/ada-lovelace.png" },
-    {firstName: "Ada", src: "../images/ada-lovelace.png" },
-    {firstName : "Placeholder1", src: "../images/100px.png"},
-    {firstName : "Placeholder2", src: "../images/100px.png"},
-    {firstName : "Placeholder3", src: "../images/100px.png"},
-    {firstName : "Placeholder4", src: "../images/100px.png"},
-    {firstName : "Placeholder5", src: "../images/100px.png"},
-    {firstName : "Placeholder6", src: "../images/100px.png"},
-    
+    {src: "../images/ada-lovelace.png" },
+    {src: "../images/ada-lovelace.png" },
+    {src: "../images/ada-lovelace.png" },
+    {src: "../images/100px.png"},
+    {src: "../images/100px.png"},
+    {src: "../images/100px.png"},
+    {src: "../images/100px.png"},
+    {src: "../images/100px.png"},
+    {src: "../images/100px.png"},
+
 ]
 
+//CHOOSE RANDOM IMAGES
 
-let randomImages = imagesCard[Math.floor(Math.random() * imagesCard.length)];
-//console.log(randomImages)
 
 const frontImageCard = [
     {firstName : "WhoInvent?" , src: "../images/who-invent-what.png"}
@@ -68,7 +64,6 @@ let invents = [
 function placeImages(imagesCard) {
 
     const parentDiv = document.getElementById("game-grid")
-    //console.log(parentDiv)
 
     for (let i = 0; i < imagesCard.length; i++) {
         parentDiv.innerHTML += `
@@ -77,7 +72,6 @@ function placeImages(imagesCard) {
             </div>
         `;
     }
-
 }
 placeImages(imagesCard)
 
@@ -87,33 +81,59 @@ placeImages(imagesCard)
 const cellsGrid = document.getElementsByClassName("grid-item");
 
 
-function clickStart (cellsGrid){ 
+function clickStart (cellsGrid){
 
     for(let i = 0; i<cellsGrid.length; i++) {
-        
-        
         cellsGrid[i].addEventListener("click", function(){
             const openImg = cellsGrid[i].querySelector("div");
-            
            
+            //console.log(randomImages)
+            
+
+
              if(openImg.className === "img-open"){
                  openImg.className = "img-close"
                  //openImg.src = "../images/who invent what.png"
-                 
-                 
-                 
+                 //openImg.removeAttribute("src", "randomImages]");
+
+
+
              } else if (openImg.className === "img-close"){
-                 openImg.className = "img-open"
+                 openImg.className = "img-open" 
+                 let randomImages = imagesCard[Math.floor(Math.random() * imagesCard.length)];
+                 //console.log(openImg.style.backgroundImage = randomImages);
+                 openImg.style.backgroundImage = "url('../images)"
+                 openImg.setAttribute("src", " i")
+                 //openImg.src = " "
+                 //document.openImg.style.backgroundImage === imagesCard[i]
+                 
+                 //randomImages.innerHTML
+                //  imagesCard[i].innerHTML
+                
+
+                
+                    //console.log(randomImages)  
+
              }
+
             
-            
-        })  
+
+        })
     }
 }
 clickStart(cellsGrid)
 
 
 
+
+// checkPosition()
+// //     for (image in validateOptions){
+//         document.div.style.backroundImage= "url(../images/ada-lovelace.png) "
+
+//     }
+// }
+// checkPosition()
+//document.body.style.backgroundImage = "url('img_tree.png')";
 
 
 //ENABLE CLICKS CELLS
@@ -123,7 +143,7 @@ clickStart(cellsGrid)
 
 
 // -----------------------------------------------------X-----------------------------------//
-    
+
 
 
 //     class Game {

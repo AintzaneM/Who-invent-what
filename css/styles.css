@@ -42,9 +42,11 @@ h1{
 }
 
 .img-open{
-    background-image: url("../images/100px.png");
+    background-image: url("'..//images") ;
+
+    /* /background-image: ur; */
     outline-color: green;
-}
+   
 
 
 
