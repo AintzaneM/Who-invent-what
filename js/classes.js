@@ -26,30 +26,36 @@ let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.l
 const imagesCard = [
 
     {firstName : "Ada" , src: "../images/ada-lovelace.png" },
-    {firstName : "Heidy" , src: "../images/heidy-lamarr.png"},
-    {firstName: "Mary", src: "../images/mary-walton.png"},
+    {firstName : "Ada" , src: "../images/ada-lovelace.png" },
+    {firstName: "Ada", src: "../images/ada-lovelace.png" },
     {firstName : "Placeholder1", src: "../images/100px.png"},
     {firstName : "Placeholder2", src: "../images/100px.png"},
     {firstName : "Placeholder3", src: "../images/100px.png"},
     {firstName : "Placeholder4", src: "../images/100px.png"},
     {firstName : "Placeholder5", src: "../images/100px.png"},
     {firstName : "Placeholder6", src: "../images/100px.png"},
-    // {firstName : "WhoInvent?" , src: "../images/who invent what.png"},
+    
 ]
 
 
 let randomImages = imagesCard[Math.floor(Math.random() * imagesCard.length)];
 //console.log(randomImages)
 
+const frontImageCard = [
+    {firstName : "WhoInvent?" , src: "../images/who invent what.png"},
 
+]
 // console.log(imagesCard[0].src)
+
+
+
 
 //INVENTSARRAY
 
 let invents = [
-    [FirstName = "InventAda", src = "images/invent-ada.png"],
-    [FirstName = "InventHeidy", src = "images/invent-heidy.png"],
-    [FirstName = "InventMary", src = "images/invent-mary.png"],
+    {FirstName : "InventAda", src : "images/invent-ada.png"},
+    {FirstName : "InventHeidy", src : "images/invent-heidy.png"},
+    {FirstName : "InventMary", src : "images/invent-mary.png"},
 
 
 ]
@@ -57,39 +63,95 @@ let invents = [
 
 
 
-
-
-
-
 //PLACE IMAGES ON GRID
 
-function placeImages(imagesCard) {
+function placeImages(imagesCard, frontImageCard ) {
+
     const parentDiv = document.getElementById("game-grid")
     //console.log(parentDiv)
 
     for (let i = 0; i < imagesCard.length; i++) {
-        parentDiv.innerHTML += `<div class="grid-item"> <img class= "img-open" src= "${imagesCard[i].src} "></div>`
+        parentDiv.innerHTML += `<div class="grid-item">
+        
+        <img class= "img-open" src= "${imagesCard[i].src} ">
+        </div>`
+    
+    
     }
 
 }
-placeImages(imagesCard)
+placeImages(imagesCard, frontImageCard )
+
+const cellsGrid = document.getElementsByClassName("grid-item");
+const closeImg = document.getElementsByClassName("img-close");
+
+//console.log(openImg)
+
+function clickStart (cellsGrid){
+
+    
+  
+
+   
+
+    for(let i = 0; i<cellsGrid.length; i++) {
+        console.log(cellsGrid[i])
+        cellsGrid[i].addEventListener("click", function(){
+            const openImg = cellsGrid[i].querySelector("img");
+           
+             if(openImg.className === "img-open"){
+                 openImg.className = "close"
+                 
+             } else if (openImg.className === "close"){
+                 openImg.className = "img-open"
+             }
+            
+            
+        })  
+    }
+}
 
 
 
 
 //BOTON CLICK-START
-const cellsGrid = document.getElementsByClassName("grid-item");
 
-function clickStart (cellsGrid){
-        
-    for(let i = 0; i<cellsGrid.length; i++) {
-        cellsGrid[i].addEventListener("click", function(){
-            console.log(i)
-        })  
-    }
-}
 
 clickStart(cellsGrid)
+
+function flipCard(){
+    cardsChosen.push(imagesCard)
+
+}
+
+const cardsChosen = []
+
+// const cellsGrid = document.getElementsByClassName("grid-item");
+
+// const openImg = document.getElementsByClassName("img-open");
+
+// // function clickStart (cellsGrid){
+        
+// //     for(let i = 0; i<cellsGrid.length; i++) {
+// //         cellsGrid[i].addEventListener("click", function(event){
+            
+            
+// //             console.log(i)
+
+// //         })
+            
+        
+// //     }
+// // }
+
+// // clickStart(cellsGrid)
+
+// function flipCard() {
+    
+//     this.classList.toggle("flip");
+// }
+// const closeImg = document.querySelectorAll(".img-close");
+// closeImg.forEach((image)=>image.addEventListener("click",flipCard))
 
 
  
