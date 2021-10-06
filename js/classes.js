@@ -68,7 +68,7 @@ function placeImages(imagesCard) {
     for (let i = 0; i < imagesCard.length; i++) {
         parentDiv.innerHTML += `
             <div class="grid-item">
-                <div class= "img-close" />
+                <img class= "img-close" >
             </div>
         `;
     }
@@ -85,7 +85,7 @@ function clickStart (cellsGrid){
 
     for(let i = 0; i<cellsGrid.length; i++) {
         cellsGrid[i].addEventListener("click", function(){
-            const openImg = cellsGrid[i].querySelector("div");
+            const openImg = cellsGrid[i].querySelector("img");
            
             //console.log(randomImages)
             
@@ -93,30 +93,17 @@ function clickStart (cellsGrid){
 
              if(openImg.className === "img-open"){
                  openImg.className = "img-close"
-                 //openImg.src = "../images/who invent what.png"
-                 //openImg.removeAttribute("src", "randomImages]");
+                 openImg.setAttribute("src", "../images/who-invent-what.png");
 
 
 
              } else if (openImg.className === "img-close"){
-                 openImg.className = "img-open" 
-                 let randomImages = imagesCard[Math.floor(Math.random() * imagesCard.length)];
-                 //console.log(openImg.style.backgroundImage = randomImages);
-                 openImg.style.backgroundImage = "url('../images)"
-                 openImg.setAttribute("src", " i")
-                 //openImg.src = " "
-                 //document.openImg.style.backgroundImage === imagesCard[i]
+                 openImg.className = "img-open"
+                 let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];     
+                 openImg.setAttribute("src", randomImages.src)
                  
-                 //randomImages.innerHTML
-                //  imagesCard[i].innerHTML
-                
 
-                
-                    //console.log(randomImages)  
-
-             }
-
-            
+             }   
 
         })
     }
