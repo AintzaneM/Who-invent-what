@@ -6,7 +6,7 @@
 
 //CHOOSE RANDOM POSITION
 
-let validateOptions = [
+const validateOptions = [
     [0, 3, 6],
     [0, 4, 8],
     [0, 1, 2],
@@ -19,20 +19,17 @@ let validateOptions = [
 
 let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
 
-
 const imagesCard = [
 
-    {src: "../images/ada-lovelace.png" },
-    {src: "../images/ada-lovelace.png" },
-    {src: "../images/ada-lovelace.png" },
-    {src: "../images/100px.png"},
-    {src: "../images/100px.png"},
-    {src: "../images/100px.png"},
-    {src: "../images/100px.png"},
-    {src: "../images/100px.png"},
-    {src: "../images/100px.png"},
+    {src:"../images/ada-lovelace.png" },
+    {src: "../images/mary-walton.png" },
+    {src: "../images/heidy-lamarr.png" },
+    
 
 ]
+
+let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];  
+
 
 //CHOOSE RANDOM IMAGES
 
@@ -41,8 +38,6 @@ const frontImageCard = [
     {firstName : "WhoInvent?" , src: "../images/who-invent-what.png"}
 
 ]
-// console.log(imagesCard[0].src)
-
 
 
 
@@ -61,11 +56,11 @@ let invents = [
 
 //PLACE IMAGES ON GRID
 
-function placeImages(imagesCard) {
+function placeImages() {
 
     const parentDiv = document.getElementById("game-grid")
 
-    for (let i = 0; i < imagesCard.length; i++) {
+    for (let i = 0; i < 9; i++) {
         parentDiv.innerHTML += `
             <div class="grid-item">
                 <img class= "img-close" >
@@ -73,37 +68,32 @@ function placeImages(imagesCard) {
         `;
     }
 }
-placeImages(imagesCard)
+placeImages()
 
 //BOTON CLICK-START
 
 
 const cellsGrid = document.getElementsByClassName("grid-item");
 
-
 function clickStart (cellsGrid){
 
     for(let i = 0; i<cellsGrid.length; i++) {
+        
         cellsGrid[i].addEventListener("click", function(){
-            const openImg = cellsGrid[i].querySelector("img");
-           
-            //console.log(randomImages)
             
+            const openImg = cellsGrid[i].querySelector("img"); 
 
+                if (randomOptions.includes(i) && openImg.className === "img-close") {
+                    openImg.className = "img-open"
+                    openImg.setAttribute("src", randomImages.src)               
 
-             if(openImg.className === "img-open"){
-                 openImg.className = "img-close"
-                 openImg.setAttribute("src", "../images/who-invent-what.png");
-
-
-
-             } else if (openImg.className === "img-close"){
-                 openImg.className = "img-open"
-                 let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];     
-                 openImg.setAttribute("src", randomImages.src)
-                 
-
-             }   
+                } else {
+                    (!randomOptions.includes(i) && openImg.className === "img-close"  )
+                    openImg.className = "img-open";
+            
+                    openImg.setAttribute("src", "../images/100px.png")
+                   
+                }  
 
         })
     }
@@ -113,17 +103,6 @@ clickStart(cellsGrid)
 
 
 
-// checkPosition()
-// //     for (image in validateOptions){
-//         document.div.style.backroundImage= "url(../images/ada-lovelace.png) "
-
-//     }
-// }
-// checkPosition()
-//document.body.style.backgroundImage = "url('img_tree.png')";
-
-
-//ENABLE CLICKS CELLS
 
 
 
