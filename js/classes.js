@@ -41,6 +41,7 @@ const invents = [
 //------------------------------------------------------------------------------------------------//
 
 let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
+console.log(randomOptions)
 let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];
 //console.log(randomImages.firstName)
 let randomInvents = invents[Math.floor(Math.random() *invents.length)];
@@ -79,7 +80,7 @@ function clickStart (cellsGrid){
             amountClicks++;   
            
             if(amountClicks > 3) {        
-                alert("Game Over")
+                alert("Game Over!! You have reach a maximum of 3 clicks Good luck next time!!!")
 
             } else {  
                 const openImg = cellsGrid[i].querySelector("img");
@@ -88,9 +89,12 @@ function clickStart (cellsGrid){
                 if (randomOptions.includes(i) && openImg.className === "img-close") {
                     openImg.className = "img-open"
                     openImg.setAttribute("src", randomImages.src)
-                    const inventImg = document.querySelector(".img-invents");
+                    //const gridItem = document.getElementsByClassName("grid-item")
+                    const inventImg = document.getElementById("game-invent");
                     inventImg.style.display = randomInvents.src
-                    console.log(randomInvents.src)
+                    //console.log(randomInvents.src)
+                    //console.log(randomImages.src)
+                    
 
                 
 
