@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+h1{
+    text-align: center;
+}
+
+
+#game-grid {
+    background-color: white;
+    border: 2px solid #CAB8FF;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap : 20px;
+    padding: 20px 50px;   
+}
+
+
+
+.grid-item {
+    text-align: center;
+    border: 1px solid black;
+    min-height: 100px;
+    min-width: 100px;
+}
+
+.img-open, .img-close {
+    outline: 2px solid orange;
+    width: 100%;
+    height: 100%;
+}
+
+.img-close{
+    background-image: url("./images/who-invent-what.png");
+    outline-color: blue;
+    
+}
+
+.img-open{
+    
+    outline-color: green;
+}
+
+
+
