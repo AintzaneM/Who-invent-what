@@ -25,21 +25,29 @@ const imagesCard = [
 
 ]
 
-let invents = [
-    {src : "images/invent-ada.png"},
-    {src : "images/invent-heidy.png"},
-    {src : "images/invent-mary.png"},
+//console.log(imagesCard.firstName)
+
+const invents = [
+    {firstName: "Ada", src : "images/invent-ada.png"},
+    {firstName: "Mary", src : "images/invent-heidy.png"},
+    {firstName: "Heidy",src : "images/invent-mary.png"},
 
 
 ]
 
+//console.log(invents)
 
 
 //------------------------------------------------------------------------------------------------//
 
 let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
 let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];
+//console.log(randomImages.firstName)
+let randomInvents = invents[Math.floor(Math.random() *invents.length)];
+//console.log(randomInvents)
+
 const cellsGrid = document.getElementsByClassName("grid-item");
+
 
 
 //PLACE IMAGES ON GRID
@@ -61,36 +69,59 @@ placeImages()
 //BOTON CLICK-START
 
 function clickStart (cellsGrid){
+    
+    let amountClicks = 0;
 
     for(let i = 0; i<cellsGrid.length; i++) {
             
          cellsGrid[i].addEventListener("click", function(){
-                
-            let counter = 0;
-            counter++;
-            if(counter > 3) {
-                windows.alert("Game Over" )
-            }
 
+            amountClicks++;   
+           
+            if(amountClicks > 3) {        
+                alert("Game Over")
 
-               
-
-
-            const openImg = cellsGrid[i].querySelector("img");
+            } else {  
+                const openImg = cellsGrid[i].querySelector("img");
 
 
                 if (randomOptions.includes(i) && openImg.className === "img-close") {
                     openImg.className = "img-open"
                     openImg.setAttribute("src", randomImages.src)
-                    
+                    const inventImg = document.querySelector(".img-invents");
+                    inventImg.style.display = randomInvents.src
+                    console.log(randomInvents.src)
 
+                
 
-                } else {
-                    (!randomOptions.includes(i) && openImg.className === "img-open"  )
+                }  else {
+                     (!randomOptions.includes(i) && openImg.className === "img-open"  )
                     openImg.className = "img-close";
 
                     openImg.setAttribute("src", "./images/100px.png")
-                }
+            }
+
+            }
+       
+
+           
+
+                // for(let i= 0 ; i < randomInvents; i++) {
+                    
+                //     for(let j=0 ; j < randomImages; j++) {
+            
+                //        if (openImg.className = "img-open" && randomInvents.src === randomImages.src){                          
+                //            inventImg.setAttribute("src", invents.src)
+
+                          
+            
+                //        }
+                            
+                    
+                        
+                //     }
+                // }
+                     
 
 
 
@@ -99,13 +130,18 @@ function clickStart (cellsGrid){
 }
 clickStart(cellsGrid)
 
+
+
+
+
 const myobj = document.querySelector("script");
 myobj.remove();
 
-// function invents(){
+// function inventsImages(){
+    
 
 
-// }
+// // }
 
 
 // let gameActive = true;
