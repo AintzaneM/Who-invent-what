@@ -4,7 +4,7 @@
 // -situation Fall
 
 
-//CHOOSE RANDOM POSITION
+//DATA STRUCTURE
 
 const validateOptions = [
     [0, 3, 6],
@@ -17,41 +17,29 @@ const validateOptions = [
     [6, 7, 8],
 ]
 
-let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
-
 const imagesCard = [
 
-    {src:"../images/ada-lovelace.png" },
-    {src: "../images/mary-walton.png" },
-    {src: "../images/heidy-lamarr.png" },
-    
+    {firstName: "Ada", src:"./images/ada-lovelace.png" },
+    {firstName: "Mary", src: "./images/mary-walton.png" },
+    {firstName: "Heidy",src: "./images/heidy-lamarr.png" },
 
 ]
-
-let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];  
-
-
-//CHOOSE RANDOM IMAGES
-
-
-const frontImageCard = [
-    {firstName : "WhoInvent?" , src: "../images/who-invent-what.png"}
-
-]
-
-
-
-//INVENTSARRAY
 
 let invents = [
-    {FirstName : "InventAda", src : "images/invent-ada.png"},
-    {FirstName : "InventHeidy", src : "images/invent-heidy.png"},
-    {FirstName : "InventMary", src : "images/invent-mary.png"},
+    {src : "images/invent-ada.png"},
+    {src : "images/invent-heidy.png"},
+    {src : "images/invent-mary.png"},
 
 
 ]
-//console.log(invents)
 
+
+
+//------------------------------------------------------------------------------------------------//
+
+let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
+let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];
+const cellsGrid = document.getElementsByClassName("grid-item");
 
 
 //PLACE IMAGES ON GRID
@@ -72,35 +60,92 @@ placeImages()
 
 //BOTON CLICK-START
 
-
-const cellsGrid = document.getElementsByClassName("grid-item");
-
 function clickStart (cellsGrid){
 
     for(let i = 0; i<cellsGrid.length; i++) {
-        
-        cellsGrid[i].addEventListener("click", function(){
             
-            const openImg = cellsGrid[i].querySelector("img"); 
+         cellsGrid[i].addEventListener("click", function(){
+                
+            let counter = 0;
+            counter++;
+            if(counter > 3) {
+                windows.alert("Game Over" )
+            }
+
+
+               
+
+
+            const openImg = cellsGrid[i].querySelector("img");
+
 
                 if (randomOptions.includes(i) && openImg.className === "img-close") {
                     openImg.className = "img-open"
-                    openImg.setAttribute("src", randomImages.src)               
+                    openImg.setAttribute("src", randomImages.src)
+                    
+
 
                 } else {
-                    (!randomOptions.includes(i) && openImg.className === "img-close"  )
-                    openImg.className = "img-open";
-            
-                    openImg.setAttribute("src", "../images/100px.png")
-                   
-                }  
+                    (!randomOptions.includes(i) && openImg.className === "img-open"  )
+                    openImg.className = "img-close";
+
+                    openImg.setAttribute("src", "./images/100px.png")
+                }
+
+
 
         })
     }
 }
 clickStart(cellsGrid)
 
+const myobj = document.querySelector("script");
+myobj.remove();
 
+// function invents(){
+
+
+// }
+
+
+// let gameActive = true;
+// let currentPlayer = " x ";
+// let statusGame = ["","","","","","","","",""]
+// const displayStatus = document.querySelector(".game-status")
+
+// const winningMessage = () => `Player ${currentPlayer} has won`;
+// const drawMessage = () => `Game ended in a draw`;
+
+
+
+
+
+
+// function winningConditions () {
+//     let roundWon = false;
+
+//     for(let i =0; i<= 7; i ++)  {
+//         const winCondition = winningConditions[i];
+
+//         let a = statusGame[winCondition[0]];
+//         let b = statusGame[winCondition[1]];
+//         let c = statusGame[winCondition[2]];
+
+//         if ( a === "" || b=== "" || c === "") {
+//             continue;
+//         }
+//         if (a === b && b === c) {
+//             roundWon = true;
+//             break
+//         }
+
+//     }
+//     if (roundWon) {
+//         grid.innerHTML = winningMessage();
+//         gameActive = false;
+//         return
+//     }
+// }
 
 
 
