@@ -1,10 +1,4 @@
-// -able to click cards
-// -flip cards
-// -situation Won
-// -situation Fall
-
-
-//DATA STRUCTURE
+//DATA STRUCTURES
 
 const validateOptions = [
     [0, 3, 6],
@@ -22,31 +16,20 @@ const imagesCard = [
     {firstName: "Ada", src:"./images/ada-lovelace.png" },
     {firstName: "Mary", src: "./images/mary-walton.png" },
     {firstName: "Heidy",src: "./images/heidy-lamarr.png" },
-
 ]
 
-//console.log(imagesCard.firstName)
 
 const invents = [
-    {firstName: "Ada", src : "images/invent-ada.png"},
-    {firstName: "Mary", src : "images/invent-heidy.png"},
-    {firstName: "Heidy",src : "images/invent-mary.png"},
-
-
+    "./images/invent-ada.png",
+    "./images/invent-heidy.png",
+    "./images/invent-mary.png",
 ]
-
-//console.log(invents)
-
 
 //------------------------------------------------------------------------------------------------//
 
 let randomOptions = validateOptions[Math.floor(Math.random() * validateOptions.length)];
-console.log(randomOptions)
 let randomImages = imagesCard[Math.floor(Math.random() *imagesCard.length)];
-//console.log(randomImages.firstName)
 let randomInvents = invents[Math.floor(Math.random() *invents.length)];
-//console.log(randomInvents)
-
 const cellsGrid = document.getElementsByClassName("grid-item");
 
 
@@ -55,7 +38,7 @@ const cellsGrid = document.getElementsByClassName("grid-item");
 
 function placeImages() {
 
-    const parentDiv = document.getElementById("game-grid")
+    const parentDiv = document.getElementById("game-grid");
 
     for (let i = 0; i < 9; i++) {
         parentDiv.innerHTML += `
@@ -67,152 +50,132 @@ function placeImages() {
 }
 placeImages()
 
-//BOTON CLICK-START
+
+// function placeInvents() {
+//     const parentDiv = document.getElementById("game-invent");
+//     // for (let i = 0; i > 3; i++) {
+//         parentDiv.innerHTML +=`
+//             <div id="game-invent">
+//                 <img class= "appear-invent" >
+//             </div>
+//         `;      
+//     //}
+
+// }
+
+
+// function displayInvents () {
+
+//     const gameGrid = document.getElementById("game-grid");
+    
+
+//     //const openImages = document.getElementsByClassName("img-open");
+//     const inventImgParent = document.getElementById("game-invent"); 
+//     const inventImg = document.getElementsByClassName("img-invents");
+    
+//     let storeImageOpen = []
+
+//     for(let i = 0; i < cellsGrid.length; i++) {
+        
+//         storeImageOpen++
+
+//         const openImg = document.getElementsByClassName(".img-open");
+//         console.log(openImg)
+
+//         if (openImg.className === "img-open" && openImg.src === randomImages[i].src){
+            
+//             //inventImg.className = "appear-invent"
+
+            
+            
+//             console.log(randomImages.src)
+//         }
+          
+          
+            
+//         //     //inventImgParent.className("appear-invent");
+
+//         //     //console.log(openImages.src)
+
+            
+
+            
+    
+            
+    
+        
+
+//     }
+
+   
+
+     
+// }
+// displayInvents()  
+
+
+
+
+
+//RESET-START AGAIN BUTTON
+
+const reloadBtn = document.querySelector(".reload-button");
+
+function reloadPage () {
+    reload = location.reload();
+}
+
+reloadBtn.addEventListener("click",reloadPage, false);
+
+
+
+//START GAME
 
 function clickStart (cellsGrid){
     
     let amountClicks = 0;
 
     for(let i = 0; i<cellsGrid.length; i++) {
+        //console.log(cellsGrid[i])
             
-         cellsGrid[i].addEventListener("click", function(){
+        cellsGrid[i].addEventListener("click", function(){
+            amountClicks++;
 
-            amountClicks++;   
-           
-            if(amountClicks > 3) {        
-                alert("Game Over!! You have reach a maximum of 3 clicks Good luck next time!!!")
+                if(amountClicks > 3) {
+                    alert("Game Over!! You have reached a maximum of 3 clicks Good luck next time!!!");
+                    } else { 
 
-            } else {  
-                const openImg = cellsGrid[i].querySelector("img");
-
-
-                if (randomOptions.includes(i) && openImg.className === "img-close") {
-                    openImg.className = "img-open"
-                    openImg.setAttribute("src", randomImages.src)
-                    //const gridItem = document.getElementsByClassName("grid-item")
-                    const inventImg = document.getElementById("game-invent");
-                    inventImg.style.display = randomInvents.src
-                    //console.log(randomInvents.src)
-                    //console.log(randomImages.src)
-                    
-
-                
-
-                }  else {
-                     (!randomOptions.includes(i) && openImg.className === "img-open"  )
-                    openImg.className = "img-close";
-
-                    openImg.setAttribute("src", "./images/100px.png")
-            }
-
-            }
-       
-
-           
-
-                // for(let i= 0 ; i < randomInvents; i++) {
-                    
-                //     for(let j=0 ; j < randomImages; j++) {
-            
-                //        if (openImg.className = "img-open" && randomInvents.src === randomImages.src){                          
-                //            inventImg.setAttribute("src", invents.src)
-
-                          
-            
-                //        }
-                            
-                    
+                        const openImg = cellsGrid[i].querySelector("img");
+                        const appearImg = document.querySelectorAll("img-invents")
                         
-                //     }
-                // }
-                     
+                        
+
+                            if (randomOptions.includes(i) && openImg.className === "img-close" ) {
+                                
+                                openImg.className = "img-open";
+                                openImg.setAttribute("src", randomImages.src);
+                                
 
 
+                            } else {
+                                (!randomOptions.includes(i) && openImg.className === "img-open");
+                                openImg.className = "img-close";
+                                openImg.setAttribute("src", "./images/100px.png");
+                                
+                            }
+                
+                        }
 
         })
+    
     }
 }
 clickStart(cellsGrid)
 
 
-
-
-
-const myobj = document.querySelector("script");
-myobj.remove();
-
-// function inventsImages(){
+const remove = document.querySelector("script")
+remove.remove();
     
-
-
-// // }
-
-
-// let gameActive = true;
-// let currentPlayer = " x ";
-// let statusGame = ["","","","","","","","",""]
-// const displayStatus = document.querySelector(".game-status")
-
-// const winningMessage = () => `Player ${currentPlayer} has won`;
-// const drawMessage = () => `Game ended in a draw`;
-
-
-
-
-
-
-// function winningConditions () {
-//     let roundWon = false;
-
-//     for(let i =0; i<= 7; i ++)  {
-//         const winCondition = winningConditions[i];
-
-//         let a = statusGame[winCondition[0]];
-//         let b = statusGame[winCondition[1]];
-//         let c = statusGame[winCondition[2]];
-
-//         if ( a === "" || b=== "" || c === "") {
-//             continue;
-//         }
-//         if (a === b && b === c) {
-//             roundWon = true;
-//             break
-//         }
-
-//     }
-//     if (roundWon) {
-//         grid.innerHTML = winningMessage();
-//         gameActive = false;
-//         return
-//     }
-// }
-
-
-
-
-
-
-
-// -----------------------------------------------------X-----------------------------------//
-
-
-
-//     class Game {
-//         constructor () {
-
-//         }
-
-//         startGame();
-//         .addEventListener();
-//     }
-
-
-//     class Cards {
-//         constructor () {
-
-//         }
-
-//         createImages();
-
-//     }
+   
+        
 
