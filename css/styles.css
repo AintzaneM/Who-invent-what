@@ -36,7 +36,7 @@ h1{
 }
 
 .img-close{
-    background-image: url("../images/who-invent-what.png");
+    background-image: url("./images/who-invent-what.png");
     outline-color: blue;
     
 }
