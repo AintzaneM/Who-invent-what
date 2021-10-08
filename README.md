@@ -1,5 +1,5 @@
 # Who-invent-what
-A minimum viable product of a game. Discover the invention that women have created through history.
+A minimum viable product of a game to give visibility to women and their inventions created throughout history.
 
 
 ## Intro

@@ -13,17 +13,19 @@ const validateOptions = [
 
 const imagesCard = [
 
-    {firstName: "Ada", src:"./images/ada-lovelace.png" },
-    {firstName: "Mary", src: "./images/mary-walton.png" },
-    {firstName: "Heidy",src: "./images/heidy-lamarr.png" },
+    {firstName: "Ada", src:"ada-lovelace.png",  image: "invent-ada.png"},
+    {firstName: "Mary", src: "mary-walton.png", image: "invent-mary.png"},
+    {firstName: "Heidy", src: "heidy-lamarr.png", image: "invent-heidy.png" },
 ]
 
 
 const invents = [
-    "./images/invent-ada.png",
-    "./images/invent-heidy.png",
-    "./images/invent-mary.png",
+    "invent-ada.png",
+    "invent-heidy.png",
+    "invent-mary.png",
 ]
+
+const imgPath = "../images/";
 
 //------------------------------------------------------------------------------------------------//
 
@@ -33,8 +35,11 @@ let randomInvents = invents[Math.floor(Math.random() *invents.length)];
 const cellsGrid = document.getElementsByClassName("grid-item");
 
 
-
 //PLACE IMAGES ON GRID
+
+function startGame() {
+
+}
 
 function placeImages() {
 
@@ -51,67 +56,28 @@ function placeImages() {
 placeImages()
 
 
-// function placeInvents() {
-//     const parentDiv = document.getElementById("game-invent");
-//     // for (let i = 0; i > 3; i++) {
-//         parentDiv.innerHTML +=`
-//             <div id="game-invent">
-//                 <img class= "appear-invent" >
-//             </div>
-//         `;      
-//     //}
 
-// }
+function checkIfWin () {
 
-
-// function displayInvents () {
-
-//     const gameGrid = document.getElementById("game-grid");
+    const gameGrid = document.getElementById("game-grid");
+    const appearImg = document.querySelector(".img-invents")
+    const openImages = document.querySelectorAll(".img-open");
     
+    let storeImageOpen = 0;
 
-//     //const openImages = document.getElementsByClassName("img-open");
-//     const inventImgParent = document.getElementById("game-invent"); 
-//     const inventImg = document.getElementsByClassName("img-invents");
-    
-//     let storeImageOpen = []
+    for(let i = 0; i < openImages.length; i++) {
+        if (openImages[i].className === "img-open" && openImages[i].src.includes(randomImages.src)){
+            storeImageOpen++;
+            if(storeImageOpen === 3) {
+                
+                appearImg.setAttribute('src', imgPath + randomImages.image)
+                //alert("you wooooon!!!!!!!")
+            }
 
-//     for(let i = 0; i < cellsGrid.length; i++) {
-        
-//         storeImageOpen++
-
-//         const openImg = document.getElementsByClassName(".img-open");
-//         console.log(openImg)
-
-//         if (openImg.className === "img-open" && openImg.src === randomImages[i].src){
-            
-//             //inventImg.className = "appear-invent"
-
-            
-            
-//             console.log(randomImages.src)
-//         }
-          
-          
-            
-//         //     //inventImgParent.className("appear-invent");
-
-//         //     //console.log(openImages.src)
-
-            
-
-            
-    
-            
-    
-        
-
-//     }
-
-   
-
-     
-// }
-// displayInvents()  
+        }      
+    }
+ }
+ 
 
 
 
@@ -131,43 +97,33 @@ reloadBtn.addEventListener("click",reloadPage, false);
 
 //START GAME
 
-function clickStart (cellsGrid){
-    
+function clickStart(cellsGrid) {
+
     let amountClicks = 0;
 
-    for(let i = 0; i<cellsGrid.length; i++) {
-        //console.log(cellsGrid[i])
-            
-        cellsGrid[i].addEventListener("click", function(){
+    for (let i = 0; i < cellsGrid.length; i++) {
+
+        cellsGrid[i].addEventListener("click", function () {
+
             amountClicks++;
 
-                if(amountClicks > 3) {
-                    alert("Game Over!! You have reached a maximum of 3 clicks Good luck next time!!!");
-                    } else { 
+            if (amountClicks > 3) {
+                alert("Game Over!! You have reached a maximum of 3 clicks Good luck next time!!!");
+            } else {
+                const openImg = cellsGrid[i].querySelector("img");
 
-                        const openImg = cellsGrid[i].querySelector("img");
-                        const appearImg = document.querySelectorAll("img-invents")
-                        
-                        
+                if (randomOptions.includes(i) && openImg.className === "img-close") {
+                    openImg.className = "img-open";
+                    openImg.setAttribute("src", imgPath + randomImages.src);
+                } else {
+                    (!randomOptions.includes(i) && openImg.className === "img-open");
+                    openImg.className = "img-close";
+                    openImg.setAttribute("src", "../images/100px.png");
+                }
 
-                            if (randomOptions.includes(i) && openImg.className === "img-close" ) {
-                                
-                                openImg.className = "img-open";
-                                openImg.setAttribute("src", randomImages.src);
-                                
-
-
-                            } else {
-                                (!randomOptions.includes(i) && openImg.className === "img-open");
-                                openImg.className = "img-close";
-                                openImg.setAttribute("src", "./images/100px.png");
-                                
-                            }
-                
-                        }
-
+                checkIfWin()
+            }
         })
-    
     }
 }
 clickStart(cellsGrid)
