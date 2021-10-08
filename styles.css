@@ -1,10 +1,33 @@
 body {
     margin: 40px;
-    font-family: 'Raleway',
-        sans-serif;
-    color: #FCFFA6;
-    background-color: pink;
+    font-family: 'Raleway';
+    background-image: url(../images/background-start.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    
+
+
 }
+
+
+#message-button a {
+    
+    font-size: 30px;
+    color: #FCFFA6;
+    text-decoration: none;
+    padding: 20px;
+    background-color: #3D2C8D ;
+    border-radius: 10px;
+    
+}
+
+/* #message a:hover {
+
+    color: white;
+    background-color: black;
+    border: white 2px solid;
+    border-radius: 10px;
+
+} */
