@@ -71,7 +71,7 @@ function checkIfWin () {
             if(storeImageOpen === 3) {
                 
                 appearImg.setAttribute('src', imgPath + randomImages.image)
-                //alert("you wooooon!!!!!!!")
+                
             }
 
         }      

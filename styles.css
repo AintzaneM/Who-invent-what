@@ -1,7 +1,8 @@
 body {
-    margin: 40px;
+    margin: 30px;
     font-family: 'Raleway';
-    background-image: url(./images/strat-background.jpg);
+    background-image: url("./images/strat-background.jpg");
+    background-color: #CAB8FF ;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -23,11 +24,3 @@ body {
     
 }
 
-/* #message a:hover {
-
-    color: white;
-    background-color: black;
-    border: white 2px solid;
-    border-radius: 10px;
-
-} */
