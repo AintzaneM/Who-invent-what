@@ -15,12 +15,13 @@ body {
 
 #message-button a {
     
-    font-size: 30px;
+    font-size: 20px;
     color: #FCFFA6;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
     background-color: #3D2C8D ;
     border-radius: 10px;
+    align-items: center;
     
 }
 

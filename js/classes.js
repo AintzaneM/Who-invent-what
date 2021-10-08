@@ -79,10 +79,6 @@ function checkIfWin () {
  }
  
 
-
-
-
-
 //RESET-START AGAIN BUTTON
 
 const reloadBtn = document.querySelector(".reload-button");
@@ -92,8 +88,6 @@ function reloadPage () {
 }
 
 reloadBtn.addEventListener("click",reloadPage, false);
-
-
 
 //START GAME
 
