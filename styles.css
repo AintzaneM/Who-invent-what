@@ -1,7 +1,7 @@
 body {
     margin: 40px;
     font-family: 'Raleway';
-    background-image: url(../images/background-start.jpg);
+    background-image: url(./images/strat-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
