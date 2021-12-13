@@ -1,16 +1,6 @@
 body {
-    
     font-family: 'Raleway';
-    
     background-color: #CAB8FF ;
-    /* background-repeat: no-repeat;
-    
-    background-size: cover; */
-    /* display: flex;
-    justify-content: center; */
-    
-
-
 }
 
 #container{
@@ -19,7 +9,6 @@ body {
     display:flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 h1{
@@ -32,7 +21,6 @@ p {
 
 #message{
     color: #FCFFA6;
-
 }
 
 #button {
@@ -40,8 +28,6 @@ p {
 }
 
 #button a {
-    
-    
     font-size: 20px;
     color: #FCFFA6;
     text-decoration: none;
@@ -50,6 +36,5 @@ p {
     border-radius: 10px;
     align-items: center;
     position: relative;
-    
 }
 

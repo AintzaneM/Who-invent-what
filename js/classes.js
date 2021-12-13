@@ -112,7 +112,7 @@ function clickStart(cellsGrid) {
                 } else {
                     (!randomOptions.includes(i) && openImg.className === "img-open");
                     openImg.className = "img-close";
-                    openImg.setAttribute("src", "../images/100px.png");
+                    openImg.setAttribute("src", "../images/cross.png");
                 }
 
                 checkIfWin()
